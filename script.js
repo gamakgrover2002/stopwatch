@@ -22,6 +22,7 @@ resetButton.addEventListener("click", resetTimer);
 function startTimer() {
   interval = setInterval(updateTimer, 10);
   startButton.disabled = true;
+  endButton.disabled = false;
   resetButton.disabled = false;
 }
 
@@ -31,6 +32,7 @@ function endTimer() {
   resetTime();
 
   startButton.disabled = false;
+  endButton.disabled = true;
 }
 
 function pauseTimer() {
@@ -41,7 +43,9 @@ function pauseTimer() {
 function resetTimer() {
   resetTime();
   displayTimer();
+  clearInterval(interval);
   startButton.disabled = false;
+  endButton.disabled = true;
 }
 
 function updateTimer() {
